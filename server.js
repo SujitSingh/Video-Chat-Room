@@ -18,6 +18,13 @@ app.get('/:roomId', (req, res) => {
   res.render('room', { roomId: req.params.roomId });
 });
 
+io.on('connection', socket => {
+  socket.on('room-joined', (roomId, userId) => {
+    socket.join(roomId);
+    socket.to(roomId).broadcast.emit('user-joined', userId); // notify existing users
+  });
+});
+
 server.listen(PORT, () => {
   console.log(`Server running at http:127.0.0.1:${PORT}`);
 }).on('error', err => {
