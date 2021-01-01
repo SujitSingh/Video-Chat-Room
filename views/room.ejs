@@ -5,18 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Video Chat Room</title>
   <script src="/socket.io/socket.io.js" defer></script>
-  <style>
-    .video-grid {
-      display: flex;
-      flex: 1;
-    }
-  </style>
+  <link href="/css/main.css" rel="stylesheet" type="text/css">
   <script>
     const roomId = '<%= roomId %>';
   </script>
 </head>
 <body>
-
+  <div class="video-grid"></div>
+  
   <script src="/js/peerjs.min.js" defer></script>
   <script src="/js/main.js" defer></script>
 </body>

@@ -1,0 +1,19 @@
+body {
+  padding: 0;
+  margin: 0;
+  font-size: 1em;
+}
+
+.video-grid {
+  display: grid;
+  gap: 0.5em;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 0.5em;
+}
+video {
+  width: 100%;
+  border: 1px solid white;
+}
+video.own {
+  border-color: #cddc39;
+}

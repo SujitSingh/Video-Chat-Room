@@ -30,6 +30,10 @@ io.on('connection', socket => {
   socket.on('room-joined', (roomId, userId) => {
     socket.join(roomId);
     socket.to(roomId).broadcast.emit('user-joined', userId); // notify existing users
+    // register user disconnection handler
+    socket.on('disconnect', () => {
+      socket.to(roomId).broadcast.emit('user-disconnected', userId);
+    });
   });
 });
 
